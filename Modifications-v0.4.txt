@@ -1,0 +1,36 @@
+1) Apenas alterado a posição de DEFINES+=NETSTACK_CONF_RDC_CHANNEL_CHECK_RATE=16
+applications/project-conf.h
+applications/Makefile_controller_node
+applications/Makefile_enabled_node
+
+2) adicionado envio de nack através da serial caso não tenha buffer para envio do pacote no controller-node
+applications/controller-node.c
+
+3) Adicionado constante SENSING_AT_SECONDS para tempo de sensoriamento na aplicação
+applications/enabled-node.c
+
+4) Adicionado prints em tempo de compilação para saber configuração atual dos DEFINEs
+contiki-sdn/energy-manager.c
+
+5) Adicionado SDN_CONF_METRIC para escolha de algoritmo de cálculo de métrica
+controller-server/controller-pc/controller-pc.pro
+
+6) removido função get_weight e adicionado aos arquivos responsáveis pelo cálculo da métrica
+controller-server/digraph/digraph.c
+
+7) correção de bug: atualizar o peso da rota atual em uso para comparar com nova rota calculada
+controller-server/digraph/dijkstra.c
+controller-server/digraph/dijkstra.h
+controller-server/sdn-process-packets-controller.c
+
+8) definição de print para mensagens em tempo de compilação
+sdn-common/sdn-debug.h
+
+9) Adição de pacotes para coleta e gerenciamento de métricas e remoção do pacote ENERGY_REPORT para uso do pacote de coleta de métricas.
+
+10) Adicionado algoritmo de lógica fuzzy para cálculo de métrica
+controller-server/digraph/sdn-metric.h
+controller-server/digraph/mamdani-fuzzy-model-metric.h
+controller-server/digraph/mamdani-fuzzy-model-metric.c
+controller-server/digraph/dummy-metric.h
+controller-server/digraph/dummy-metric.c
